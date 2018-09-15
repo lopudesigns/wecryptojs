@@ -39,7 +39,7 @@ new sjcl.test.TestCase("node signature core functionality", function(cb) {
    
   var keys = {
     sec: sjcl.codec.node.deserializePrivateKey("5JamTPvZyQsHf8c2pbN92F1gUY3sJkpW3ZJFzdmfbAJPAXT5aw3"),
-    pub: sjcl.codec.node.deserializePublicKey("TME5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq")
+    pub: sjcl.codec.node.deserializePublicKey("TWYM5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq")
   };
  
   var fakehash = sjcl.hash.sha256.hash([1]);
@@ -59,7 +59,7 @@ new sjcl.test.TestCase("node key codec tests", function (cb) {
     password: "password",
     role: "active",
     sec: "5JamTPvZyQsHf8c2pbN92F1gUY3sJkpW3ZJFzdmfbAJPAXT5aw3",
-    pub: "TME5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq"
+    pub: "TWYM5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq"
   }];
 
   for (var i = 0; i < testValues.length; i++) {

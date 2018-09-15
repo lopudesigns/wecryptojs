@@ -1,18 +1,18 @@
 {
   "name": "wecryptojs",
-  "version": "1.2.11",
+  "version": "1.2.13",
   "description": "Common javascript cryptographic utilities. Based on sjcl.",
   "main": "lib/crypto.js",
-	"license": "MIT",
+  "license": "MIT",
   "scripts": {
     "prepublish": "./scripts/build.js",
     "clean": "rm -Rf lib",
     "fmt": "prettier --write '{src,scripts}/**/*.js' && eslint '{src,scripts}/**/*.js'",
     "build": "./scripts/build.js",
     "sjcl-test": "./scripts/test.js",
-		"test": "./scripts/build.js && ./scripts/test.js && ./scripts/test.js && tape 'test/*.test.js'",
-		"push" : "./scripts/push.sh",
-		"pull" : "./scripts/pull.sh"
+    "test": "./scripts/build.js && ./scripts/test.js && ./scripts/test.js && tape 'test/*.test.js'",
+    "push": "./scripts/push.sh",
+    "pull": "./scripts/pull.sh"
   },
   "devDependencies": {
     "eslint": "^4.10.0",

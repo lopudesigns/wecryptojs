@@ -21,7 +21,7 @@ test('crypto.generateKeys', function(t) {
   var testHash = new Uint8Array(32).buffer; // 32 0s
   var keys = crypto.generateKeys();
 
-  t.equal(keys.public.slice(0, 3), 'TME', 'generated public key is in Protocol Specific format');
+  t.equal(keys.public.slice(0, 3), 'TWYM', 'generated public key is in Protocol Specific format');
 
   var sec = crypto.PrivateKey.from(keys.private);
   var pub = crypto.PublicKey.from(keys.public);
@@ -45,10 +45,10 @@ test('crypto.keysFromPassword', function(t) {
   ];
 
   var publicKeys = [
-    ['owner', 'TME5pZ15FDVAvNKW3saTJchWmSSmYtEvA6aKiXwDtCq2JRZV9KtR9'],
-    ['memo', 'TME5nwJgD9jmkAdTXuiz3jqrkw3om95gCapZo4e4Bcp3qzyiedwCn'],
-    ['active', 'TME5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq'],
-    ['posting', 'TME6gZmazY23TEMkxmPpnmvbAgWFAzwtaSDbhSUdmpTXzoJJLPFH4']
+    ['owner', 'TWYM5pZ15FDVAvNKW3saTJchWmSSmYtEvA6aKiXwDtCq2JRZV9KtR9'],
+    ['memo', 'TWYM5nwJgD9jmkAdTXuiz3jqrkw3om95gCapZo4e4Bcp3qzyiedwCn'],
+    ['active', 'TWYM5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq'],
+    ['posting', 'TWYM6gZmazY23TEMkxmPpnmvbAgWFAzwtaSDbhSUdmpTXzoJJLPFH4']
   ];
 
   var keys = crypto.keysFromPassword('username', 'password');
@@ -71,7 +71,7 @@ test('crypto.PrivateKey', function(t) {
 
   t.equal(
     pub.toString(),
-    'TME5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq',
+    'TWYM5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq',
     'regenerates public key correctly'
   );
   
@@ -86,7 +86,7 @@ test('crypto.PrivateKey', function(t) {
 
 test('crypto.PublicKey', function(t) {
   var priv = crypto.PrivateKey.from('5JamTPvZyQsHf8c2pbN92F1gUY3sJkpW3ZJFzdmfbAJPAXT5aw3');
-  var pub = crypto.PublicKey.from('TME5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq');
+  var pub = crypto.PublicKey.from('TWYM5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq');
 
   var failures = [];
   for (var i = 0; i < 64; i++) {

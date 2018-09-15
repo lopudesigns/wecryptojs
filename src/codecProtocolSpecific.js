@@ -4,7 +4,7 @@ sjcl.codec.node = {
   MAINNET: {
     pubHeader: 0x0,
     privHeader: 0x80,
-    pubPrefix: 'TME'
+    pubPrefix: 'TWYM'
   },
   TESTNET: {
     pubHeader: 0x0,

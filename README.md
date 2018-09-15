@@ -50,7 +50,7 @@ Provides operations over WeYouMe secp256k1-based ECC private keys.
 > secretKey = wecryptojs.PrivateKey.from('5JCDRqLdyX4W7tscyzyxav8EaqABSVAWLvfi7rdqMKJneqqwQGt')
 PrivateKey { getPublicKey: [Function], sign: [Function] }
 > secretKey.getPublicKey().toString()
-'TME5pZ15FDVAvNKW3saTJchWmSSmYtEvA6aKiXwDtCq2JRZV9KtR9'
+'TWYM5pZ15FDVAvNKW3saTJchWmSSmYtEvA6aKiXwDtCq2JRZV9KtR9'
 > secretSig = secretKey.sign(new Uint8Array(32).buffer)
 ArrayBuffer { byteLength: 65 }
 > wecryptojs.hexify(secretSig)
@@ -61,7 +61,7 @@ ArrayBuffer { byteLength: 65 }
 
 Provides operations over WeYouMe secp256k1-based ECC public keys.
 ```
-> publicKey = wecryptojs.PublicKey.from('TME5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq')
+> publicKey = wecryptojs.PublicKey.from('TWYM5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq')
 ... 
 > publicKey.verify(new Uint8Array(32).buffer, secretSig)
 true
@@ -77,7 +77,7 @@ random number generation.
 > wecryptojs.generateKeys()
 {
   private: "5JCDRqLdyX4W7tscyzyxav8EaqABSVAWLvfi7rdqMKJneqqwQGt",
-  public: "TME5pZ15FDVAvNKW3saTJchWmSSmYtEvA6aKiXwDtCq2JRZV9KtR9"
+  public: "TWYM5pZ15FDVAvNKW3saTJchWmSSmYtEvA6aKiXwDtCq2JRZV9KtR9"
 }
 ```
 
@@ -89,16 +89,16 @@ Given an account name and password, regenerates the derived `owner`, `posting`,
 > wecryptojs.keysFromPassword('username', 'password')
 { owner:
    { private: '5JCDRqLdyX4W7tscyzyxav8EaqABSVAWLvfi7rdqMKJneqqwQGt',
-     public: 'TME5pZ15FDVAvNKW3saTJchWmSSmYtEvA6aKiXwDtCq2JRZV9KtR9' },
+     public: 'TWYM5pZ15FDVAvNKW3saTJchWmSSmYtEvA6aKiXwDtCq2JRZV9KtR9' },
   memo:
    { private: '5JSmQQJXH5ZrSW3KJSTUPFJy7SuLeDiY3bW6vB1McamxzJQFhwD',
-     public: 'TME5nwJgD9jmkAdTXuiz3jqrkw3om95gCapZo4e4Bcp3qzyiedwCn' },
+     public: 'TWYM5nwJgD9jmkAdTXuiz3jqrkw3om95gCapZo4e4Bcp3qzyiedwCn' },
   posting:
    { private: '5HsoxWiHRRyx6oSxKj32HDqDMzSGhs79zLZopDc7nMcjMbcPp5E',
-     public: 'TME6gZmazY23TEMkxmPpnmvbAgWFAzwtaSDbhSUdmpTXzoJJLPFH4' },
+     public: 'TWYM6gZmazY23TEMkxmPpnmvbAgWFAzwtaSDbhSUdmpTXzoJJLPFH4' },
   active:
    { private: '5JamTPvZyQsHf8c2pbN92F1gUY3sJkpW3ZJFzdmfbAJPAXT5aw3',
-     public: 'TME5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq' } }
+     public: 'TWYM5SKxjN1YdrFLgoPcp9KteUmNVdgE8DpTPC9sF6jbjVqP9d2Utq' } }
 ```
 
 ## Requirements

@@ -45,27 +45,22 @@
       return fromBits(sjcl.codec.node.signRecoverably(priv, toBits(hash)));
     };
   }
-
   PrivateKey.from = function(wif, header) {
     return new PrivateKey(
       sjcl.codec.node.deserializePrivateKey(wif, header)
     );
   };
-
   function PublicKey(pub) {
     this._p = pub;
   }
-
   PublicKey.from = function(str) {
     return new PublicKey(sjcl.codec.node.deserializePublicKey(str));
   };
-
   PublicKey.recover = function(hash, sig) {
     return new PublicKey(
       sjcl.codec.node.recoverPublicKey(toBits(hash), toBits(sig))
     );
   };
-
   PublicKey.prototype = {
     toString: function() {
       return sjcl.codec.node.serializePublicKey(this._p);
@@ -80,12 +75,14 @@
       }
     }
   };
-
-  function generateKeys() {
-    var k = sjcl.ecc.ecdsa.generateKeys(sjcl.ecc.curves.k256);
-    return serializePair(k);
+  function generateKeys(serialize=true) {
+		var k = sjcl.ecc.ecdsa.generateKeys(sjcl.ecc.curves.k256);
+		if(serialize){
+			return serializePair(k);
+		} else {
+			return k
+		}
   }
-
   function keysFromPassword(accountName, accountPassword) {
     var keys = sjcl.codec.node.keysFromPassword(
       accountName,
@@ -98,15 +95,18 @@
       active: serializePair(keys.active)
     };
   }
-
   function sha256(data) {
+		if(typeof data == 'string' && textEncoderPath){
+			data = new global[textEncoderPath]().encode(data).buffer
+		}
     return fromBits(sjcl.hash.sha256.hash(toBits(data)));
   }
-
   function ripemd160(data) {
+		if(typeof data == 'string' && textEncoderPath){
+			data = new global[textEncoderPath]().encode(data).buffer
+		}
     return fromBits(sjcl.hash.ripemd160.hash(toBits(data)));
   }
-
   function hexify(data) {
     var result = '';
     var view = new Uint8Array(data);
@@ -118,23 +118,30 @@
     }
     return result;
   }
-
   function serializePair(k) {
     return {
       private: sjcl.codec.node.serializePrivateKey(k.sec),
       public: sjcl.codec.node.serializePublicKey(k.pub)
     };
   }
-
   function toBits(a) {
+		if(typeof a == 'string' && textEncoderPath){
+			a = new global[textEncoderPath]().encode(a).buffer
+		}
     if (a instanceof ArrayBuffer) {
       return sjcl.codec.arrayBuffer.toBits(a);
     } else {
       throw new Error('You must supply an ArrayBuffer');
     }
   }
-
   function fromBits(a) {
     return sjcl.codec.arrayBuffer.fromBits(a, 0, 0);
   }
 });
+
+var window
+var global
+var util
+
+let textEncoderPath = (window && window.TextEncoder) ? 'window' : (util && util.TextEncoder) ? 'util' : (global && global.TextEncoder) ? 'global' : (global && global.util && global.util.TextEncoder) ? 'global.util' : (global && global.window && global.window.TextEncoder) ? 'global.window' : false
+let textDecoderPath = (window && window.TextDecoder) ? 'window' : (util && util.TextDecoder) ? 'util' : (global && global.TextDecoder) ? 'global' : (global && global.util && global.util.TextDecoder) ? 'global.util' : (global && global.window && global.window.TextDecoder) ? 'global.window' : false
