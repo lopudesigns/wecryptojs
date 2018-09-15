@@ -1,6 +1,6 @@
 {
   "name": "wecryptojs",
-  "version": "1.2.18",
+  "version": "1.2.19",
   "description": "Common javascript cryptographic utilities. Based on sjcl.",
   "main": "lib/crypto.js",
   "license": "MIT",
