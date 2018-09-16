@@ -96,15 +96,15 @@
     };
   }
   function sha256(data) {
-		if(typeof data == 'string' && textEncoderPath){
-			data = new global[textEncoderPath]().encode(data).buffer
-		}
+		// if(typeof data == 'string' && textEncoderPath){
+		// 	data = new global[textEncoderPath]().encode(data).buffer
+		// }
     return fromBits(sjcl.hash.sha256.hash(toBits(data)));
   }
   function ripemd160(data) {
-		if(typeof data == 'string' && textEncoderPath){
-			data = new global[textEncoderPath]().encode(data).buffer
-		}
+		// if(typeof data == 'string' && textEncoderPath){
+		// 	data = new global[textEncoderPath]().encode(data).buffer
+		// }
     return fromBits(sjcl.hash.ripemd160.hash(toBits(data)));
   }
   function hexify(data) {
@@ -125,9 +125,9 @@
     };
   }
   function toBits(a) {
-		if(typeof a == 'string' && textEncoderPath){
-			a = new global[textEncoderPath]().encode(a).buffer
-		}
+		// if(typeof a == 'string' && textEncoderPath){
+		// 	a = new global[textEncoderPath]().encode(a).buffer
+		// }
     if (a instanceof ArrayBuffer) {
       return sjcl.codec.arrayBuffer.toBits(a);
     } else {
