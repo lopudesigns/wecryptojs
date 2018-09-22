@@ -75,7 +75,7 @@
       }
     }
   };
-  function generateKeys(serialize=true) {
+  function generateKeys(serialize) {
 		var k = sjcl.ecc.ecdsa.generateKeys(sjcl.ecc.curves.k256);
 		if(serialize){
 			return serializePair(k);
