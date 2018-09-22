@@ -143,5 +143,5 @@ var window
 var global
 var util
 
-let textEncoderPath = (window && window.TextEncoder) ? 'window' : (util && util.TextEncoder) ? 'util' : (global && global.TextEncoder) ? 'global' : (global && global.util && global.util.TextEncoder) ? 'global.util' : (global && global.window && global.window.TextEncoder) ? 'global.window' : false
-let textDecoderPath = (window && window.TextDecoder) ? 'window' : (util && util.TextDecoder) ? 'util' : (global && global.TextDecoder) ? 'global' : (global && global.util && global.util.TextDecoder) ? 'global.util' : (global && global.window && global.window.TextDecoder) ? 'global.window' : false
+var textEncoderPath = (window && window.TextEncoder) ? 'window' : (util && util.TextEncoder) ? 'util' : (global && global.TextEncoder) ? 'global' : (global && global.util && global.util.TextEncoder) ? 'global.util' : (global && global.window && global.window.TextEncoder) ? 'global.window' : false
+var textDecoderPath = (window && window.TextDecoder) ? 'window' : (util && util.TextDecoder) ? 'util' : (global && global.TextDecoder) ? 'global' : (global && global.util && global.util.TextDecoder) ? 'global.util' : (global && global.window && global.window.TextDecoder) ? 'global.window' : false
