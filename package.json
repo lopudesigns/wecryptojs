@@ -1,6 +1,6 @@
 {
   "name": "wecryptojs",
-  "version": "1.2.40",
+  "version": "1.2.5",
   "description": "Common javascript cryptographic utilities. Based on sjcl.",
   "main": "lib/crypto.js",
   "license": "MIT",
@@ -11,8 +11,8 @@
     "build": "./scripts/build.js",
     "sjcl-test": "./scripts/test.js",
     "test": "./scripts/build.js && ./scripts/test.js && ./scripts/test.js && tape 'test/*.test.js'",
-    "push": "./scripts/push.sh",
-    "pull": "./scripts/pull.sh"
+    "push": "git add . ; git commit -m 'ready' ; git push origin dev",
+    "pull": "git pull origin dev"
   },
   "devDependencies": {
     "eslint": "^4.10.0",
